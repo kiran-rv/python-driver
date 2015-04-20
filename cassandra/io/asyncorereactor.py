@@ -158,7 +158,7 @@ class AsyncoreConnection(Connection, asyncore.dispatcher):
 
     @classmethod
     def factory(cls, *args, **kwargs):
-        timeout = kwargs.pop('timeout', 5.0)
+        timeout = kwargs.pop('timeout', 10.0)
         conn = cls(*args, **kwargs)
         conn.connected_event.wait(timeout)
         if conn.last_error:

@@ -155,7 +155,7 @@ class TwistedConnection(Connection):
         succeeded in connecting and are ready for service (or
         raises an exception otherwise).
         """
-        timeout = kwargs.pop('timeout', 5.0)
+        timeout = kwargs.pop('timeout', 10.0)
         conn = cls(*args, **kwargs)
         conn.connected_event.wait(timeout)
         if conn.last_error:
